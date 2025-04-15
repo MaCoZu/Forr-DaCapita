@@ -1,6 +1,5 @@
 import { defineConfig } from "tinacms";
 
-
 // Your hosting provider likely exposes this as an environment variable
 const branch =
   process.env.GITHUB_BRANCH ||
@@ -9,6 +8,7 @@ const branch =
   "main";
 
 export default defineConfig({
+
   branch,
 
   // Get this from tina.io
@@ -52,6 +52,7 @@ export default defineConfig({
             type: "image",
             name: "thumbnail",
             label: "Thumbnail",
+            // uploadDir: () => "public/uploads",
           },
           {
             type: "rich-text",
@@ -69,4 +70,7 @@ export default defineConfig({
       },
     ],
   },
+  // Use Netlify Functions for the API
+  // apiUrl: "/api/tina", // Points to your Netlify Function
 });
+
