@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Mascot from "../assets/images/pageimages/mascot.png";
+---
+
+<Layout title="PA 58">
+	<div class="w-full h-screen lg:px-0 lg:pt-15 pt-5">
+		<div class="flex flex-col col-span-1 md:flex-row justify-between">
+			<div
+				class="flex flex-col
+				max-w-prose
+				prose prose-stone text-lg
+				font-merri font-normal
+				leading-loose tracking-normal
+				dark:prose-invert
+				prose-p:text-pretty
+				[&>p]:mb-4
+				[&>p:last-child]:mb-0
+				prose-img:rounded-xl
+				pr-10"
+			>
+				<h1 class="font-merri font-semibold text-3xl mb-5">About</h1>
+				<p class="">
+					<em>Forró</em> is a brazillian pair dance, with a rich tradition.
+					The music and dance spread from the northeast to the whole of
+					Brazil and over world. The music and dancing styles diversified
+					in the process, while the roots are always present.
+				</p>
+				<p>
+					Universities played a role in making the dance popular and
+					the exported dancing style is often called <em
+						>Forró Universitário</em
+					>. It's a fairly close dance, but open to many variations
+					and interpretations. Closeness makes this a contact sport
+					and facilitats many subtle moves but it is defnitely no
+					invitation for groping.
+				</p>
+				<p>
+					At Prinzenalle we're just a bunch of Forro affcionados who
+					like to dance in the spririt of a picinic among friends. The
+					drinks are cheap, everybody is welcome as is a little
+					<em>donation</em>. We do not make any money but the room must be
+					booked and the sound system needs some maintenance.
+				</p>
+				<p class="mt-10">Webdesign & Graphics by Marco Zausch</p>
+			</div>
+			<div class="">
+				<Image
+					src={Mascot}
+					alt="Mascot"
+					class="h-auto w-auto md:max-w-md lg:max-w-lg"
+				/>
+			</div>
+		</div>
+	</div>
+</Layout>

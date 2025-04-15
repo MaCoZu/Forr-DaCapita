@@ -1,0 +1,26 @@
+---
+import { type CollectionEntry, render } from "astro:content";
+import "../styles/global.css";
+import Layout from "./Layout.astro";
+import Article from "../components/Article.astro";
+
+interface Props {
+	post: any; // or `CollectionEntry<'blog'>` if type imported
+}
+
+import { getImage } from "../utils/getImage";
+
+const { post } = Astro.props;
+const thumbnail = post.data.thumbnail
+	? await getImage(post.data.thumbnail)
+	: null;
+
+const { Content } = await render(post);
+---
+
+<Layout title={post.title}>
+	<h1 class="text-3xl font-bold mb-6">{post.title}</h1>
+	<Article>
+		<Content />
+	</Article>
+</Layout>

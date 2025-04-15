@@ -1,0 +1,84 @@
+---
+import FormattedDate from "../components/FormattedDate.astro";
+import FullPost from "../components/FullPost.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+import MapImage from "../assets/images/pageimages/map.png";
+
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("news"))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()) // sort by latest
+    .slice(0, 1);
+
+const [latest, ...rest] = posts;
+---
+
+<Layout title="Forró da Capita | News">
+    <div class="flex flex-col col-span-1 md:flex-row">
+        <header class="w-full h-screen md:px-0 lg:pt-15 pt-5 order-1">
+            <!-- Headline -->
+            <div class="md:mb-10 mb-0 border-spacing-4">
+                <h1 class="text-xl font-merri text-slate-600">
+                    We dance <span class="text-violet-900 font-semibold"
+                        >Forró</span
+                    >.
+                </h1>
+                <h1 class="text-xl font-merri text-slate-600">
+                    Every <span class="text-violet-900 font-semibold"
+                        >Tuesday</span
+                    > from
+                    <span class="text-violet-900 font-semibold"
+                        >19:30 - 22:00</span
+                    > at
+                    <span class="text-violet-900 font-semibold"
+                        >Prinzenalle 58</span
+                    >, 13359 Berlin
+                </h1>
+            </div>
+
+            <!-- Divider -->
+            <div class="lg:hidden relative flex py-5 items-center">
+                <div class="flex-grow border-t border-gray-400"></div>
+                <span class="flex-shrink mx-4 text-gray-400">News</span>
+                <div class="flex-grow border-t border-gray-400"></div>
+            </div>
+
+            <!-- Post  -->
+            <div class="flex flex-col lg:flex-row order-2">
+                <div
+                    class="flex-1 min-w-0 pr-18 mr-20"
+                >
+                    <!-- Divider -->
+                    <div class="hidden lg:relative lg:flex md:pb-5 items-center">
+                        <div class="flex-grow border-t border-gray-400"></div>
+                        <span class="flex-shrink mx-4 text-gray-400">News</span>
+                        <div class="flex-grow border-t border-gray-400"></div>
+                    </div>
+                    <div id="news" class="scroll-mt-[150px]">
+                        <div class="md:h-[45vh] overflow-y-auto">
+                            <FullPost post={latest} />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Divider -->
+                <div class="lg:hidden relative flex py-5 items-center">
+                    <div class="flex-grow border-t border-gray-400"></div>
+                    <span class="flex-shrink mx-4 text-gray-400">Map</span>
+                    <div class="flex-grow border-t border-gray-400"></div>
+                </div>
+
+                <!-- Map  -->
+                <div class="lg:-mt-10 lg:w-1/4 relative group order-3 mb-4">
+                    <Image
+                        src={MapImage}
+                        alt="Location map"
+                        class="w-full h-auto lg:transition-transform lg:duration-500 lg:group-hover:scale-145 lg:origin-right"
+                    />
+                </div>
+            </div>
+        </header>
+    </div>
+</Layout>
