@@ -14,8 +14,10 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['@tinacms']
+    }
   },
-
   output: 'static',
 
 });
