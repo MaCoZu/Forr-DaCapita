@@ -3,12 +3,12 @@ import Image from "astro/components/Image.astro";
 import sole from "../assets/images/pageimages/Sole_full.png";
 ---
 
-<nav class="top-0 w-full mx-auto sm:h-20 p-4 sm:p-0 z-10">
-    <div class="flex justify-between items-center py-4 relative">
+<nav class="top-0 h-10 mt-6 mb-10 sm:h-15 sm:mt-7 sm:mb-14 z-10">
+    <div class="flex justify-between items-center relative">
         <!-- Logo Left -->
         <a href="/" class="hover:text-violet-900">
             <h1
-                class="invisible lg:visible text-3xl md:text-5xl font-budmo1 whitespace-nowrap"
+                class="hidden lg:block text-3xl md:text-5xl font-budmo1 whitespace-nowrap"
             >
                 Forró da Capita
             </h1>
@@ -24,11 +24,10 @@ import sole from "../assets/images/pageimages/Sole_full.png";
 
                 <div class="dropdown">
                     <div class="subnav">
-                        <button class="subnavbtn"
-                            >More <i class="btn"></i></button
-                        >
+                        <button class="subnavbtn btn">More</button>
                         <div
-                            class="subnav-content space-x-2 flex flex-col md:flex-row"
+                            class="subnav-content flex flex-col bg-amber-50
+                            md:space-x-2 md:flex-row"
                         >
                             <a class="btn" href="/pa58">PA58</a>
                             <a class="btn" href="/about">About</a>
@@ -52,10 +51,8 @@ import sole from "../assets/images/pageimages/Sole_full.png";
     /* Navigation links */
     .navbar a {
         float: left;
-        /* font-size: 16px; */
         color: inherit;
         text-align: center;
-        /* padding: 14px 16px; */
         text-decoration: none;
     }
 
@@ -70,23 +67,22 @@ import sole from "../assets/images/pageimages/Sole_full.png";
         /* font-size: 16px; */
         border: none;
         outline: none;
-        color: inherit;
-        /* padding: 14px 16px; */
-        background-color: inherit;
+        /* background-color: inherit; */
         font-family: inherit;
-        /* margin: 0; */
+        /* margin: 0;  */
     }
 
     /* Add a red background color to navigation links on hover */
     .navbar a:hover,
     .subnav:hover .subnavbtn {
-        background-color: inherit;
+        /* background-color: inherit; */
     }
 
     /* Style the subnav content - positioned absolute */
     .subnav-content {
         display: none;
         position: absolute;
+        /* margin-right: 0px;s */
         left: 0;
         /* background-color: red; */
         /* color: indigo; */
@@ -99,14 +95,14 @@ import sole from "../assets/images/pageimages/Sole_full.png";
         font-size: large;
         padding: 14px 4px;
         float: right;
-        color: indigo;
-        text-decoration: none;
+        /* color: oklch(35.9% 0.144 278.697) */
+        /* text-decoration: none; */
     }
 
     /* Add a grey background color on hover */
     .subnav-content a:hover {
         /* background-color: #eee; */
-        color: black;
+        color: oklch(35.9% 0.144 278.697);
     }
 
     /* When you move the mouse over the subnav container, open the subnav content */
